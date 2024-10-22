@@ -1,19 +1,20 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "aos": "^2.3.4",
-    "less": "^4.2.0",
-    "nuxt": "^3.13.0",
-    "vue": "latest",
-    "vue-router": "latest"
-  }
+	"name": "nuxt-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"build-vercel": "NITRO_PRESET=vercel-edge nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"aos": "^2.3.4",
+		"less": "^4.2.0",
+		"nuxt": "^3.13.0",
+		"vue": "latest",
+		"vue-router": "latest"
+	}
 }
