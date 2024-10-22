@@ -21,7 +21,7 @@
 
       <div class="connect">
         <div class="email">
-          <img src="@/assets/images/icon-email.png" alt="">
+          <img src="../assets/images/icon-email.png" alt="">
           <p class="logo-text">doodleteam@mail.ru</p>
         </div>
 

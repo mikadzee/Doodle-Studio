@@ -115,7 +115,7 @@
     padding-left: 70px;
     padding-right: 70px;
     padding-top: 240px;
-    background-image: url("/assets/images/main-background.png");
+    background-image: url("@/assets/images/main-background.png");
     background-position: center;
     background-repeat: no-repeat;
     object-fit: cover;
@@ -403,7 +403,7 @@
 
   .contacts {
     background: #000;
-    background-image: url("/assets/images/contacts-bg.png");
+    background-image: url("@/assets/images/contacts-bg.png");
     background-repeat: no-repeat;
     object-fit: cover;
     z-index: -4;
