@@ -8,17 +8,24 @@
 
         <a href="#"><button class="discuss-project">Обсудить проект</button></a>
 
-        <div class="icon">
-          <div class="arrow">
-            <div class="wand"></div>
+        <div class="contacts-block">
+          <div class="contacts-icons" :style="{'width': checkContact ? '200px' : '0%'}">
+            <img src="@/images/icon-telegram.png" alt="">
+            <img src="@/images/icon-discord.png" alt="">
+          </div>
+
+          <div class="icon" @click="checkContact = !checkContact" >
+            <div class="arrow" :style="{'transform': checkContact ? 'rotate(90deg)' : 'rotate(0deg)'}">
+              <div class="wand"></div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="about-body">
         <div class="images">
-          <img class="logo" src="@/assets/images/main-logo.png" alt="">
-          <img class="person" src="@/assets/images/main-person.png" alt="">
+          <img class="logo" src="@/images/main-logo.png" alt="">
+          <img class="person" src="@/images/main-person.png" alt="">
         </div>
 
         <div class="about-block">
@@ -33,7 +40,7 @@
 
       </div>
       <div class="footer-image">
-        <img src="@/assets/images/main-background-footer.png" alt="">
+        <img src="@/images/main-background-footer.png" alt="">
       </div>
     </section>
 
@@ -43,7 +50,7 @@
         <IntersectionObserver  v-for="project in dataPortfolio">
           <div ref="projectRef" class="project" :style="{'left': positionCalculation()}">
             <div class="image">
-              <img src="@/assets/images/project-image.png" alt="">
+              <img src="@/images/project-image.png" alt="">
             </div>
             <p>{{ project.name }}</p>
           </div>
@@ -51,14 +58,14 @@
       </div>
 
       <div class="footer-portfolio">
-        <img src="@/assets/images/portfolio-footer.png" alt="">
+        <img src="@/images/portfolio-footer.png" alt="">
       </div>
     </section>
 
     <section class="work font-text">
-      <img class="background" src="@/assets/images/work-bg.png" />
-      <h2 class="title-work logo-text">Как мы работаем?</h2>
+      <img class="background" src="@/images/work-bg.png" />
 
+      <h2 class="title-work logo-text">Как мы работаем?</h2>
 
       <div class="info-cards">
         <div class="cards">
@@ -83,7 +90,7 @@
 
 
       <div class="work-footer">
-        <img src="@/assets/images/work-footer.png" alt="">
+        <img src="@/images/work-footer.png" alt="">
       </div>
     </section>
 
@@ -91,7 +98,7 @@
     <section class="contacts font-text">
       <div class="contacts-info">
         <div class="person">
-          <img src="@/assets/images/contacts-person.png" alt="">
+          <img src="@/images/contacts-person.png" alt="">
         </div>
 
         <div class="contacts-text">
@@ -102,7 +109,7 @@
             <h2 class="title-social logo-text">Пространство, где креативность встречается с вдохновением!</h2>
             
             <p class="description">Здесь вы найдете статьи о последних трендах, советы по улучшению вашего пространства, а также за кулисами нашей работы. <br><br><br>Мы верим, что дизайн — это не только эстетика, но и способулучшить жизнь людей.</p>
-            <a href="https://discord.gg/Y7jj7dm2S7"><button class="join">Присоедениться</button></a>
+            <a href="https://discord.gg/Y7jj7dm2S7"><button class="join">Присоеденется</button></a>
           </div>
         </div>
       </div>
@@ -115,11 +122,10 @@
     padding-left: 70px;
     padding-right: 70px;
     padding-top: 240px;
-    background-image: url("@/assets/images/main-background.png");
+    background-image: url("@/images/main-background.png");
     background-position: center;
     background-repeat: no-repeat;
     object-fit: cover;
-    z-index: 1;
     position: relative;
     background-size: cover;
     
@@ -127,7 +133,6 @@
       margin-bottom: 300px;
       position: relative;
       top: -50px;
-      z-index: -9;
 
       & h1 {
         text-align: right;
@@ -149,59 +154,92 @@
         cursor: pointer;
         font-weight: 550;
       }
-      & .icon {
+      & .contacts-block {
         position: relative;
-        cursor: pointer;
 
-        & .arrow {
-          border: 1px solid #fff;
-          border-radius: 100%;
-          width: 50px;
-          position: absolute;
-          height: 50px;
-          right: 0px;
-          bottom: -150px;
-          // display: flex;
-          // justify-content: center;
-          // align-items: center;
-          & .wand {
-            width: 2px;
+        & .icon {
+          position: relative;
+          cursor: pointer;
+          & .arrow {
+            border: 1px solid #fff;
+            transition: all 0.5s;
+            border-radius: 100%;
+            width: 50px;
             position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            height: 25px;
-            background: #fff;
-  
-            &::before {
-              content: "";
+            height: 50px;
+            right: 0px;
+            bottom: -150px;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            & .wand {
+              width: 2px;
               position: absolute;
-              bottom: -2px;
-              right: 4px;
-              border-radius: 50px;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              height: 25px;
               background: #fff;
-              width: 1.9px;
-              height: 13px;
-              transform: rotate(-40deg);
-            }
-            &::after {
-              content: "";
-              position: absolute;
-              bottom: -2px;
-              left: 4px;
-              border-radius: 50px;
-              background: #fff;
-              width: 1.9px;
-              height: 13px;
-              transform: rotate(40deg);
+    
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: -2px;
+                right: 4px;
+                border-radius: 50px;
+                background: #fff;
+                width: 1.9px;
+                height: 13px;
+                transform: rotate(-40deg);
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                bottom: -2px;
+                left: 4px;
+                border-radius: 50px;
+                background: #fff;
+                width: 1.9px;
+                height: 13px;
+                transform: rotate(40deg);
+              }
             }
           }
         }
+
+        & .contacts-icons {
+          transition: all 0.5s;
+          display: flex;
+          justify-content: space-between;
+          overflow: hidden;
+          height: 100px;
+          position: absolute;
+          right: 52px;
+          top: 100px;
+
+          & > img:last-child {
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+          }
+          & > img:first-child {
+            margin-left: 80px;
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+
+      & .active {
+        animation: arrow 1s infinite;
+      }
+      & .not-active {
+        background-color: red;
       }
     }
 
     & .about-body {
-      z-index: -1;
+      z-index: 10;
       text-transform: uppercase;
       position: relative;
 
@@ -272,7 +310,7 @@
 
   .portfolio {
     padding-top: 100px;
-    background-image: url("@/assets/images/portfolio-bg.png");
+    background-image: url("@/images/portfolio-bg.png");
     background-position: center;
     background-repeat: no-repeat;
     object-fit: cover;
@@ -331,7 +369,7 @@
     position: relative;
     background: #292929;
     height: 200vh;
-    z-index: -51;
+    z-index: -10;
 
     & .background {
       position: absolute;
@@ -403,7 +441,7 @@
 
   .contacts {
     background: #000;
-    background-image: url("@/assets/images/contacts-bg.png");
+    background-image: url("@/images/contacts-bg.png");
     background-repeat: no-repeat;
     object-fit: cover;
     z-index: -4;
@@ -483,10 +521,21 @@
     }
 
   }
+
+  @keyframes arrow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      opacity: rotate(-55deg);
+    }
+
+  }
 </style>
 
 <script setup>
 
+  let checkContact = ref(false);
   let dataPortfolio = ref([
     {id: 0,name: "EMINENCE", image: "project-image", Link: "#"},
     {id: 1,name: "ZAKA NAIL", image: "project-image", Link: "#"},

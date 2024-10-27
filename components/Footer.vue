@@ -4,8 +4,8 @@
       <div class="contacts">
         <div class="logo logo-text"><h2>Doodle</h2></div>
         <div class="icons">
-          <a href=""><img src="@/assets/images/icon-telegram.png" alt=""></a>
-          <a href=""><img src="@/assets/images/icon-discord.png" alt=""></a>
+          <a href=""><img src="@/images/icon-telegram.png" alt=""></a>
+          <a href=""><img src="@/images/icon-discord.png" alt=""></a>
         </div>
         <p class="description">© Copyright DOODLE 2024</p>
       </div>
@@ -47,10 +47,10 @@
       color: #000;
 
       & .contacts {
+        user-select: none;
 
         & .logo {
           margin-bottom: 10px;
-          
           & > h2 {
             font-size: 36px;
             font-weight: 400;
@@ -117,11 +117,17 @@
           
           & > div {
             padding: 10px 20px;
-            border: 3px solid #000;
             border-radius: 30px;
             font-size: 16px;
             font-weight: 600;
+            border: 3px solid #000;
+            transition: all 0.5s;
+            cursor: pointer;
 
+            &:hover {
+              background: #000;
+              color: #fff;
+            }
           }
         }
       }
